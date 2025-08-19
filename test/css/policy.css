@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+.header {
+    height: 56px;
+    width: 100%;
+    box-shadow: 0 0 10px #dddddd;
+    background-color: #fc9624;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+.header-left {
+    float: left;
+}
+.header-right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.header-logo {
+    height: 40px;
+    margin-top: 8px;
+    z-index: 10;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* ロゴを1.1倍に拡大 */
+    opacity: 0.8; /* 透明度を0.8にする */
+}
+
+.header-right .menu-item {
+    display: inline-block; /* 横並びにするためにインラインブロックに設定 */
+    position: relative; /* サブメニューの位置を親に対して相対的にするため */
+}
+.header-right a {
+    line-height: 56px;
+    color: #fff;
+    padding: 0 10px;
+    margin-left: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none; /* 下線を削除 */
+}
+.header-right a:hover {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: bold;
+}
+.submenu {
+    display: none; /* デフォルトではサブメニューを非表示 */
+    position: absolute;
+    top: 100%; /* 親メニューの下に配置 */
+    left: 0;
+    background-color: #fc9624; /* ヘッダーと同じ背景色 */
+    box-shadow: 0 0 10px #dddddd;
+    z-index: 5;
+}
+.submenu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none; /* 下線を削除 */
+}
+.submenu a:hover {
+    background-color: #f5a623; /* ホバー時に背景色を変更 */
+}
+.menu-item:hover .submenu {
+    display: block; /* ホバー時にサブメニューを表示 */
+}
+
+
+/* ハンバーガーメニューボタンはデフォルトでは非表示 */
+/* ハンバーガーメニューボタンはデフォルトでは非表示 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* デフォルトではメニュー項目は横並び */
+.menu-items {
+    display: flex;
+}
+
+/* 画面幅が768px以下のスタイル */
+@media (max-width: 1000px) {
+    .menu-toggle {
+        display: block;  /* ハンバーガーボタンを表示 */
+    }
+    .menu-items {
+        display: none;  /* メニュー項目を非表示 */
+        flex-direction: column;  /* メニュー項目を縦並びにする */
+        width: 100%;  /* メニューを全幅にする */
+        background-color: #fc9624;  /* メニューの背景色 */
+        position: absolute;
+        top: 56px;  /* ヘッダーの下に配置 */
+        left: 0;
+    }
+    .menu-item {
+        width: 100%;  /* メニュー項目を全幅にする */
+        text-align: center;  /* テキストを中央揃えにする */
+        padding: 10px 0;
+    }
+    .menu-item a {
+        line-height: 1.5;
+    }
+    .menu-item:hover .submenu {
+        position: static;  /* サブメニューを流れに従わせる */
+        display: none;  /* モバイルビューではサブメニューを非表示 */
+    }
+}
+
+/
+/* ホバー時に右側にドロップダウン表示するサブメニューのスタイル */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* メインメニューの右側に表示 */
+    background-color: #fc9624;
+    box-shadow: 0 0 10px #dddddd;
+    z-index: 10;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+/* モバイルビューでのサブメニューの表示方法 */
+@media (max-width: 768px) {
+    .submenu {
+        position: static; /* モバイルビューでは通常の表示に戻す */
+        left: auto;
+        top: auto;
+        box-shadow: none;
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.policy-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.policy-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.policy-section {
+    margin-bottom: 30px;
+}
+
+.policy-section h2 {
+    color: #333355;
+    border-bottom: 2px solid #fc9624;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.policy-section p {
+    color: #333355;
+}
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+.footer {
+  padding: 12px 0;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: #FC9624;
+  color: #f5f5f5;
+}

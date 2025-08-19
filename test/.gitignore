@@ -1,0 +1,10 @@
+# Windows system files
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*~
+
+# OneDrive temporary files
+.~*

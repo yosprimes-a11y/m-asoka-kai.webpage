@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon2.ico">
+<link rel="icon" href="/images/favicon2.ico" type="image/x-icon">
+    <title>ファイルアップロード</title>
+</head>
+<body>
+    <form action="upload.php" method="post" enctype="multipart/form-data" id="uploadForm">
+        <div id="drop_zone" style="border: 2px dashed #ccc; padding: 20px; text-align: center;">
+            ここにファイルをドラッグ＆ドロップ
+        </div>
+        <input type="file" id="fileInput" name="fileToUpload" style="display:none;">
+        <input type="submit" value="ファイルをアップロード" name="submit">
+    </form>
+
+    <script>
+        var dropZone = document.getElementById('drop_zone');
+        var fileInput = document.getElementById('fileInput');
+        var uploadForm = document.getElementById('uploadForm');
+
+        dropZone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropZone.style.borderColor = '#000';
+        });
+
+        dropZone.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropZone.style.borderColor = '#ccc';
+        });
+
+        dropZone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropZone.style.borderColor = '#ccc';
+
+            var files = e.dataTransfer.files;
+            fileInput.files = files; // ドロップされたファイルをinputにセット
+            uploadForm.submit(); // 自動的にフォームを送信
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+    <title>情報公開</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:700,400">
+    <link rel="shortcut icon" href="/favicon2.ico">
+    <link rel="icon" href="/images/favicon2.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/reportssp.css">
+    <link rel="stylesheet" href="css/header-menu.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <a href="index.html"><img class="header-logo" src="images/asokalogoxmini.png" alt="sub-logo"></a>
+    </div>
+    <div class="header-right">
+      <ul class="menu-items">
+        <li class="menu-item"><a href="index.html#latest-news">お知らせ</a></li>
+        <li class="menu-item menu-item-has-children">
+          <a href="index.html#philosophy">法人について</a>
+          <ul class="submenu">
+            <li><a href="houjin.html">理事長挨拶</a></li>
+            <li><a href="houjin.html#hist">法人沿革</a></li>
+            <li><a href="index.html#philosophy">法人理念</a></li>
+            <li><a href="reportssp.html">情報開示</a></li>
+          </ul>
+        </li>
+        <li class="menu-item menu-item-has-children">
+          <a href="index.html#works">事業について</a>
+          <ul class="submenu">
+            <li><a href="akagi.html">赤城野荘</a></li>
+            <li><a href="kou.html">光明園</a></li>
+            <li><a href="tan.html">たんぽぽ</a></li>
+            <li><a href="yas.html">やすらぎ</a></li>
+            <li><a href="run.html">ルンビニー苑</a></li>
+          </ul>
+        </li>
+        <li class="menu-item"><a href="index.html#skills">約束について</a></li>
+        <li class="menu-item"><a href="recruit.html">採用について</a></li>
+        <li class="menu-item"><a href="downloads.php">ダウンロード</a></li>
+        <li class="menu-item"><a href="policy.html">サイトポリシー</a></li>
+        <li class="menu-item"><a href="contactform.php">お問い合わせ</a></li>
+      </ul>
+      <button class="menu-toggle">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+  </header>
+                
+    <div class="box1">
+        <h1>情報公開</h1>
+        <h2>決算報告</h2>
+        <ul id="financial-list"></ul>
+        <h2>その他</h2>
+        <ul id="activity-list"></ul>
+    </div>
+    <footer>
+        <p>&copy; 2024 社会福祉法人前橋あそか会</p>
+    </footer>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const reports = [
+            { type: 'financial', year: 2023 },
+            { type: 'financial', year: 2022 },
+            { type: 'financial', year: 2021 },
+            { type: 'other', name: '役員名簿', file: 'yakuin_meibo.pdf' },
+            { type: 'other', name: '定款', file: 'teikan.pdf' },
+            { type: 'other', name: '役員報酬規程', file: 'yakuin_houshu_kitei.pdf' },
+            { type: 'other', name: 'その他', file: 'sonota.pdf' }
+        ];
+
+        const financialList = document.getElementById('financial-list');
+        const activityList = document.getElementById('activity-list');
+
+        reports.forEach(report => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            if (report.type === 'financial' || report.type === 'activity') {
+                a.href = `reports/${report.type}_report_${report.year}.pdf`;
+                a.textContent = `${report.year}年度 ${report.type === 'financial' ? '決算報告書' : '事業報告書'}`;
+            } else {
+                a.href = `reports/${report.file}`;
+                a.textContent = report.name;
+            }
+            a.target = '_blank';
+            a.addEventListener('click', function(event) {
+                event.preventDefault();
+                window.open(`viewpdf.html?file=${this.href}`, '_blank');
+            });
+            li.appendChild(a);
+
+            if (report.type === 'financial') {
+                financialList.appendChild(li);
+            } else if (report.type === 'activity' || report.type === 'other') {
+                activityList.appendChild(li);
+            }
+        });
+    });
+</script>
+<script src="script/script.js"></script>
+</body>
+</html>

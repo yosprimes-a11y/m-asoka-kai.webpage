@@ -1,0 +1,205 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* --------------------------------
+ * base
+ * -------------------------------- */
+/* bodyなどの基本スタイルは、必要であればreportssp.cssや共通のスタイルから統合してください */
+
+/* --------------------------------
+ * コンテンツ表示エリア (box1)
+ * -------------------------------- */
+.box1 {
+    margin-top: 100px; /* ヘッダーの高さ（56px）＋余白 */
+    padding: 20px; /* reportssp.htmlのbox1に合わせる */
+    max-width: 960px; /* reportssp.htmlのコンテンツ幅に合わせる（適宜調整） */
+    margin-left: auto; /* 中央寄せ */
+    margin-right: auto; /* 中央寄せ */
+    background-color: #fff; /* 背景色を追加（もし必要なら） */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 影を追加（もし必要なら） */
+    min-height: calc(100vh - 100px - 50px); /* フッターとヘッダーを考慮した最低高（フッターの高さに応じて調整） */
+}
+
+h1, h2 {
+    color: #fc9624;
+    text-align: center; /* タイトルを中央寄せ */
+    margin-bottom: 20px;
+}
+
+/* ダウンロードリストのスタイル */
+#download-list {
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 0;
+}
+
+#download-list li {
+    margin-bottom: 10px; /* 各リストアイテム間の余白 */
+    border-bottom: 1px solid #eee; /* 区切り線 */
+    padding-bottom: 10px;
+}
+
+#download-list li:last-child {
+    border-bottom: none; /* 最後のアイテムには区切り線をつけない */
+}
+
+#download-list a {
+    display: flex; /* アイコンとテキストを横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    color: #007bff; /* リンクの色 */
+    text-decoration: none; /* 下線を削除 */
+    font-size: 1.1rem; /* フォントサイズ調整 */
+    padding: 5px 10px;
+    transition: background-color 0.2s ease;
+}
+
+#download-list a:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+
+/* ダウンロードアイコンの共通スタイルと色付け */
+#download-list a i {
+    margin-right: 10px; /* アイコンとテキストの間の余白 */
+    font-size: 1.2em; /* アイコンのサイズ */
+    color: #6c757d; /* デフォルトのアイコン色（グレー） */
+}
+
+/* 特定のファイルタイプアイコンの色 */
+#download-list a i.fa-file-pdf {
+    color: #DC3545; /* PDFアイコンの色を赤に */
+}
+#download-list a i.fa-file-word {
+    color: #007BFF; /* Wordアイコンの色を青に */
+}
+#download-list a i.fa-file-excel {
+    color: #28A745; /* Excelアイコンの色を緑に */
+}
+#download-list a i.fa-file-powerpoint {
+    color: #FD7E14; /* PowerPointアイコンの色をオレンジに */
+}
+#download-list a i.fa-file-image {
+    color: #6F42C1; /* 画像アイコンの色を紫に */
+}
+#download-list a i.fa-file-archive {
+    color: #6C757D; /* 圧縮ファイルアイコンの色をグレーに */
+}
+#download-list a i.fa-file-alt { /* 汎用テキストファイルなど */
+    color: #17A2B8; /* シアンに */
+}
+
+
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+footer {
+    background: #fc9624;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* box1のmin-heightと合わせてフッターが最下部にくるように調整 */
+    width: 100%;
+}
+
+
+/* --------------------------------
+ * smart phone / レスポンシブデザイン
+ * -------------------------------- */
+@media (max-width: 923px) { /* reportssp.css のブレークポイントに合わせる */
+    /* ヘッダーの調整 - モバイルではFlexboxを使用 */
+    .header {
+        display: flex; /* モバイル時はFlexboxに戻す */
+        justify-content: space-between; /* 左右の要素を両端に配置 */
+        align-items: center; /* 垂直方向の中央揃え */
+        padding: 0 15px; /* モバイルでの左右余白 */
+    }
+    .header-left {
+        float: none; /* float解除 */
+    }
+    .header-right {
+        float: none; /* float解除 */
+        display: flex; /* Flexboxに戻す */
+        align-items: center; /* 垂直方向の中央揃え */
+        justify-content: flex-end; /* ハンバーガーメニューを右端に寄せる */
+        flex-grow: 1; /* ★追加: 残りのスペースを全て占有させる */
+    }
+    .header-logo {
+        height: 35px; /* モバイルでのロゴサイズ調整 */
+        margin-top: 0; /* Flexboxの中央揃えを活用 */
+    }
+
+    /* ハンバーガーメニューがアクティブな時のメニュー表示 */
+    .menu-toggle {
+        display: block; /* モバイル時は表示 */
+        /* margin-left: auto; は、親要素の justify-content: flex-end; で制御されるため削除 */
+    }
+
+    .menu-items {
+        display: none; /* デフォルトでは非表示 */
+        flex-direction: column; /* 縦並び */
+        position: absolute;
+        top: 56px; /* ヘッダーの下 */
+        left: 0;
+        width: 100%;
+        background-color: #fc9624;
+        z-index: 4;
+        overflow-y: auto; /* メニュー項目が多い場合にスクロール可能に */
+        max-height: calc(100vh - 56px); /* 画面の高さいっぱいにメニューを展開 */
+    }
+    .menu-items.is-open { /* JavaScriptで追加されるクラス */
+        display: flex; /* 開いている時に表示 */
+    }
+    .header-right .menu-item {
+        width: 100%; /* 全幅 */
+        margin-left: 0; /* マージンをリセット */
+        text-align: center; /* テキスト中央寄せ */
+        border-bottom: 1px solid rgba(255,255,255,0.2); /* 区切り線 */
+        display: block; /* リスト項目はブロック要素に */
+    }
+    .header-right .menu-item:last-child {
+        border-bottom: none;
+    }
+    .header-right a {
+        padding: 15px 0; /* 上下のパディングを増やす */
+        line-height: normal;
+    }
+
+    /* モバイルでのサブメニューの表示方法 */
+    .submenu {
+        display: none; /* モバイルではデフォルト非表示 */
+        position: static; /* 通常のフローに従う */
+        box-shadow: none;
+        background-color: rgba(252, 150, 36, 0.8); /* 親メニューより少し暗く */
+        margin-top: 0;
+        border-top: 1px solid rgba(255,255,255,0.2); /* サブメニューの上部にも区切り線 */
+        padding: 0; /* サブメニューのパディングをリセット */
+    }
+    .menu-item.is-open .submenu { /* JavaScriptで開閉 */
+        display: block;
+    }
+    .submenu a {
+        padding: 10px 20px; /* サブメニューのリンクパディング */
+        text-align: center;
+    }
+
+    /* コンテンツ表示エリア (box1) */
+    .box1 {
+        margin-top: 76px; /* ヘッダーの高さに合わせて調整 */
+        padding: 15px; /* モバイルでのパディング調整 */
+    }
+    h1, h2 {
+        font-size: 1.5em; /* モバイルでのタイトルサイズ調整 */
+    }
+    #download-list a {
+        font-size: 1rem; /* モバイルでのフォントサイズ */
+        padding: 8px 5px;
+    }
+    #download-list a i {
+        font-size: 1em;
+    }
+
+    /* フッター */
+    footer {
+        font-size: 0.9em;
+    }
+}

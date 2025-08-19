@@ -1,0 +1,549 @@
+@charset "UTF-8";
+
+/* --------------------------------
+ * base
+ * -------------------------------- */
+html {
+  font-size: 62.5%;
+}
+body {
+  position: relative;
+/*  background: #F79C28 url('../images/た2.png') no-repeat fixed center top; */
+  background-attachment: fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+  font-size: 1.4rem;
+/*  font-family: "メイリオ";*/
+  font-family: 'Raleway', sans-serif;
+/*
+  margin: 0;
+  padding: 0;
+*/
+}
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* gapプロパティを使用 */
+  padding: 20px 0;
+}
+
+.instagram-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* 色が滑らかに変わるようにする */
+}
+
+.instagram-btn i {
+  margin-right: 8px;
+}
+
+.instagram-btn.red {
+  background-color: red;
+}
+
+.instagram-btn.blue {
+  background-color: blue;
+}
+
+.instagram-btn.yellow {
+  background-color: yellow;
+  color: black; /* 黄色の背景では黒い文字が見やすい */
+}
+
+.instagram-btn.green {
+  background-color: green;
+}
+
+.instagram-btn.purple {
+  background-color: purple;
+}
+
+.instagram-btn.white {
+  background-color: white;
+  color: #ddcc00;
+}
+
+
+/* ホバー時の背景色を指定 */
+.instagram-btn.red:hover {
+  background-color: darkred;
+}
+
+.instagram-btn.blue:hover {
+  background-color: darkblue;
+}
+
+.instagram-btn.yellow:hover {
+  background-color: gold;
+}
+
+.instagram-btn.green:hover {
+  background-color: darkgreen;
+}
+
+.instagram-btn.purple:hover {
+  background-color: darkmagenta;
+}
+
+@media (max-width: 768px) {
+  .social-buttons {
+    flex-direction: column;
+  }
+
+  .instagram-btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+.img-box {
+  top: 30px; /* 上辺をナビゲーションバーの下に設定 */
+  right: 0;
+  width: 100vw;
+  height: calc(100vh + 170px);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.img-box>div{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120vh;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10;
+  opacity: 0;
+  animation-name: fade-six-images;
+  animation-duration: 36s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fade-six-images {
+  0%    { opacity: 0; }
+  3%    { opacity: 1; }
+  14%   { opacity: 1; }
+  17%   { opacity: 0; }
+  100%  { opacity: 0; }
+}
+
+.img-box>div:nth-of-type(1){
+  background-image: url('../images/tan1 .webp');
+  animation-delay: 0s;
+}
+.img-box>div:nth-of-type(2){
+  background-image: url('../images/aka-top-oka .webp');
+  animation-delay: 6s;
+}
+.img-box>div:nth-of-type(3){
+  background-image: url('../images/kou-topz .webp');
+  animation-delay: 12s;
+}
+.img-box>div:nth-of-type(4){
+  background-image: url('../images/%E3%82%841%20.webp');
+  animation-delay: 18s;
+}
+.img-box>div:nth-of-type(5){
+  background-image: url('../images/ル1 .webp');
+  animation-delay: 24s;
+}
+.img-box>div:nth-of-type(6){
+  background-image: url('../images/runbini-top-2.jpg');
+  animation-delay: 30s;
+}
+@media (max-width: 768px) {
+  .img-box {
+    height: calc(100vh - 200px);
+  }
+}
+
+#logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 300px;
+  height: 120px;
+  background: url('../images/asokalogox.png') no-repeat;
+  background-size: 100% 100%;
+  background-position: left bottom;
+  z-index: 11;
+  transition: height 0.3s ease, background-size 0.3s ease, background-position 0.3s ease;
+}
+#logo2, .mini-title {
+    display: none;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+  
+.heading {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0 15px;
+  padding-bottom: 5px;
+  letter-spacing: 2px;
+  font-size: 4rem;
+  font-family: "メイリオ", sans-serif;
+}
+
+.heading::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  bottom: 8px;
+  background-color: #333;
+}
+
+.site-title {
+  position: fixed;
+  top: 90px;
+  left: 28px;
+  margin: 50px 0 40px;
+  font-size: 2.0rem;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .header-logo {
+        display: none;
+    }
+}
+
+.latest-news {
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 40px 20px;
+}
+
+.latest-news .heading {
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.iframe-container {
+  display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  font-size: 1.5em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.philosophy {
+  padding: 60px 0px;
+  background-color: #f5f5f5;
+  color: #333355;
+}
+.philosophy-text1 {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: 55px;
+}
+.philosophy-text2 {
+  margin: 10px 0;
+  line-height: 1.5;
+  font-size: 43px;
+}
+.philosophy-text3 {
+  margin-top: 10px;
+  text-indent: 30px;
+  padding-left: 150px;
+  padding-right: 150px;
+  text-align: left;
+  font-size: 18px;
+}
+.indent {
+  display: block;
+  margin-left: 20px;
+}
+
+.more-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 5px 30px;
+  background-color: #FC9624;
+  color: #f5f5f5;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  transform: scaleX(1.3) scaleY(0.8);
+}
+
+.more-btn:hover {
+  background-color: #Ffca84;
+}
+
+.hide {
+  display: none;
+}
+
+.works {
+  padding: 60px 0;
+  background-color: #FFFFFF;
+  color: #f5f5f5;
+  background-image: url('../images/あそ5 .webp');
+  background-size: cover;
+}
+.works .heading::before {
+  background-color: #f5f5f5;
+}
+.works-wrapper {
+  display: flex; 
+  justify-content: center; 
+  padding: 80px;
+}
+.work-box {
+  flex: 0 0 20%;
+  margin: 10px; 
+  position: relative;
+  overflow: hidden;
+}
+
+.work-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease-in-out;
+}
+
+.work-box:hover .work-image {
+  transform: scale(1.1);
+}
+
+.skills {
+  position: relative;
+  padding: 60px 0;
+  background-color: #FEE6C2;
+  color: #f5f5f5;
+  background-image: url('../images/skillo .webp');
+  background-size: cover;
+  z-index: 1;
+}
+.skills::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+.skills-wrapper {
+  display: table;
+  width: 100%;
+  margin: 50px auto 0;
+  table-layout: fixed;
+}
+.skill-box {
+  display: table-cell;
+  width: 400px;
+}
+.skill-icon {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 30px;
+  border: 4px solid;
+  border-radius: 50%;
+  color: #f5f5f5;
+  font-size: 8rem;
+  line-height: 142px;
+}
+.skill-title {
+  margin: 0 20px 20px;
+  font-size: 2rem;
+}
+.skill-text {
+  margin: 0 20px;
+  text-align: left;
+  padding: 0 30px;
+  line-height: 1.5;
+}
+.skills .heading::before {
+  background-color: #f5f5f5;
+}
+
+.footer {
+  padding: 12px 0;
+  font-size: 1.3rem;
+  background-color: #FC9624;
+  color: #f5f5f5;
+}
+
+@media (max-width : 1247px ){
+  body {
+    background-image: none;
+    margin: 0;
+  }
+  .header-right .menu-item {
+        margin-left: 10px;
+    }
+    .header-right a {
+        padding: 0 5px;
+        margin-left: 10px;
+    }
+    .submenu a {
+        padding: 5px;
+    }
+}
+@media (max-width: 768px) {
+    #logo {
+        display: none;
+    }
+    #logo2 {
+      display: none; /* Hide on mobile */
+      position: absolute;
+      top: 50px;
+      left: 20px;
+      width: 150px;
+      height: 60px;
+      background: url('../images/asokalogox.png') no-repeat;
+      z-index: 11;
+      background-size: 100% 100%;
+      background-position: left bottom;
+    }
+
+    .mini-title {
+        display: block;
+        position: absolute;
+        top: 110px;
+        left: 20px;
+        padding: 0;
+        margin: 0;
+        border: 0;
+        color: #f5f5f5;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 10000;
+    }
+    
+    body {
+      font-size: 1.3rem;
+    }
+    .site-title {
+      display: none;
+    }
+
+    .philosophy-text1 {
+      font-size: 30px;
+    }
+    .philosophy-text2 {
+      font-size: 23px;
+    }
+    .philosophy-text3 {
+      padding: 10px 20px 0;
+      font-size: 18px;
+    }
+
+    .works-wrapper {
+        flex-direction: column;
+      }
+      .work-box {
+        width: 100%;
+      }
+    .skills-wrapper,
+    .skill-box {
+      display: block;
+    }
+    .skill-box {
+      margin: 40px auto;
+      width: 100%;
+    }
+    .skill-icon {
+      width: 150px;
+      height: 150px;
+      font-size: 8rem;
+      line-height: 142px;
+    }
+    .skill-title {
+      font-size: 3rem;
+    }
+    .skill-text {
+      font-size: 2rem;
+    }
+
+    .contact-form {
+      width: 80%;
+    }
+    .social-buttons {
+      flex-direction: column;
+    }
+    .instagram-btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+}
+
+/* --- ADDED STYLES --- */
+
+/* Hamburger Icon & Animation */
+.menu-toggle {
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+
+.menu-toggle-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: white;
+    margin: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.menu-toggle-bar:nth-child(1) {
+    top: 15px;
+}
+
+.menu-toggle-bar:nth-child(2) {
+    top: 21px;
+}
+
+.menu-toggle-bar:nth-child(3) {
+    top: 27px;
+}
+
+.menu-toggle.is-active .menu-toggle-bar:nth-child(1) {
+    top: 21px;
+    transform: translateX(-50%) rotate(45deg);
+}
+
+.menu-toggle.is-active .menu-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .menu-toggle-bar:nth-child(3) {
+    top: 21px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+
+/* Hide logo2 on mobile */
+@media (max-width: 768px) {
+    #logo2 {
+        display: none;
+    }
+}

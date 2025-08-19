@@ -1,0 +1,309 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* --------------------------------
+ * base
+ * -------------------------------- */
+/* bodyなどの基本スタイルは、必要であればreportssp.cssや共通のスタイルから統合してください */
+
+/* --------------------------------
+ * header
+ * -------------------------------- */
+.header {
+    height: 56px;
+    width: 100%;
+    box-shadow: 0 0 10px #dddddd;
+    background-color: #fc9624;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+    /* Flexboxを導入 */
+    display: flex;
+    justify-content: space-between; /* 左右の要素を両端に配置 */
+    align-items: center; /* 垂直方向の中央揃え */
+    padding: 0 20px; /* 左右の余白（必要に応じて調整） */
+}
+.header-left {
+    /* float: left; は不要 */
+}
+.header-right {
+    /* float: right; は不要 */
+    display: flex; /* header-rightもFlexコンテナにする */
+    align-items: center; /* 垂直方向の中央揃え */
+}
+.clear {
+    clear: both; /* Flexboxを使う場合は通常不要ですが、残しておいても問題ないです */
+}
+.header-logo {
+    height: 40px;
+    margin-top: 8px; /* headerがFlexになったことで微調整が必要な場合あり */
+    z-index: 10;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* ロゴを1.1倍に拡大 */
+    opacity: 0.8; /* 透明度を0.8にする */
+}
+
+/* ナビゲーションメニュー（PC用） */
+.menu-items {
+    display: flex; /* デフォルトで横並び */
+    list-style: none; /* ulの点線を削除 */
+    padding: 0; /* ulのデフォルトパディングを削除 */
+    margin: 0; /* ulのデフォルトマージンを削除 */
+}
+.header-right .menu-item {
+    position: relative; /* サブメニューの位置を親に対して相対的にするため */
+    /* menu-item間の余白はここで調整 */
+    margin-left: 20px; /* 各メニュー項目に左マージン */
+}
+.header-right .menu-item:first-child {
+    margin-left: 0; /* 最初の項目にはマージンを適用しない */
+}
+.header-right a {
+    line-height: 56px; /* ヘッダーの高さに合わせて調整 */
+    color: #fff;
+    padding: 0 10px; /* リンクのパディング */
+    text-decoration: none; /* 下線を削除 */
+    transition: all 0.3s ease;
+    display: block; /* ホバー領域を広げるため */
+}
+.header-right a:hover {
+    font-size: 1.2em; /* ホバー時のフォントサイズは reportssp.css に合わせる */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* サブメニューのスタイル */
+.submenu {
+    display: none; /* デフォルトではサブメニューを非表示 */
+    position: absolute;
+    top: 100%; /* 親メニューの下に配置 */
+    left: 0;
+    background-color: #fc9624; /* ヘッダーと同じ背景色 */
+    box-shadow: 0 0 10px #dddddd;
+    z-index: 5;
+    min-width: 160px; /* サブメニューの最低幅 */
+    white-space: nowrap; /* テキストが改行されないように */
+}
+.submenu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none; /* 下線を削除 */
+    line-height: normal; /* サブメニューのリンクの行高をリセット */
+}
+.submenu a:hover {
+    background-color: #f5a623; /* ホバー時に背景色を変更 */
+}
+.menu-item:hover .submenu {
+    display: block; /* ホバー時にサブメニューを表示 */
+}
+
+
+/* ハンバーガーメニューボタンのスタイル */
+.menu-toggle {
+    display: none; /* デフォルトでは非表示（デスクトップでは見せない） */
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+    z-index: 10; /* メニューの上に表示されるように */
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 15px; /* 右端からの余白 */
+    align-self: center; /* 垂直方向の中央揃え */
+}
+
+.icon-bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: white; /* ボタンの色 */
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.icon-bar:nth-child(1) {
+    top: 0;
+}
+.icon-bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+.icon-bar:nth-child(3) {
+    bottom: 0;
+}
+
+/* ボタンがアクティブ（開いている）になった時のスタイル */
+.menu-toggle.is-active .icon-bar:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+.menu-toggle.is-active .icon-bar:nth-child(2) {
+    opacity: 0; /* 中央のバーを非表示 */
+}
+.menu-toggle.is-active .icon-bar:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+
+/* --------------------------------
+ * コンテンツ表示エリア (box1)
+ * -------------------------------- */
+.box1 {
+    margin-top: 100px; /* ヘッダーの高さ（56px）＋余白 */
+    padding: 20px; /* reportssp.htmlのbox1に合わせる */
+    max-width: 960px; /* reportssp.htmlのコンテンツ幅に合わせる（適宜調整） */
+    margin-left: auto; /* 中央寄せ */
+    margin-right: auto; /* 中央寄せ */
+    background-color: #fff; /* 背景色を追加（もし必要なら） */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* 影を追加（もし必要なら） */
+    min-height: calc(100vh - 100px - 50px); /* フッターとヘッダーを考慮した最低高（フッターの高さに応じて調整） */
+}
+
+h1, h2 {
+    color: #fc9624;
+    text-align: center; /* タイトルを中央寄せ */
+    margin-bottom: 20px;
+}
+
+/* ダウンロードリストのスタイル */
+#download-list {
+    list-style: none; /* デフォルトのリストスタイルを削除 */
+    padding: 0;
+    margin: 0;
+}
+
+#download-list li {
+    margin-bottom: 10px; /* 各リストアイテム間の余白 */
+    border-bottom: 1px solid #eee; /* 区切り線 */
+    padding-bottom: 10px;
+}
+
+#download-list li:last-child {
+    border-bottom: none; /* 最後のアイテムには区切り線をつけない */
+}
+
+#download-list a {
+    display: flex; /* アイコンとテキストを横並びにする */
+    align-items: center; /* 垂直方向の中央揃え */
+    color: #007bff; /* リンクの色 */
+    text-decoration: none; /* 下線を削除 */
+    font-size: 1.1rem; /* フォントサイズ調整 */
+    padding: 5px 10px;
+    transition: background-color 0.2s ease;
+}
+
+#download-list a:hover {
+    text-decoration: underline;
+    background-color: #f0f0f0; /* ホバー時の背景色 */
+}
+
+#download-list a i {
+    margin-right: 10px; /* アイコンとテキストの間の余白 */
+    color: #fc9624; /* アイコンの色 */
+    font-size: 1.2em; /* アイコンのサイズ */
+}
+
+
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+footer {
+    background: #fc9624;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* box1のmin-heightと合わせてフッターが最下部にくるように調整 */
+    /* position: fixed; */ /* fixedは削除し、コンテンツの量に応じて動的に配置されるように */
+    width: 100%;
+}
+
+
+/* --------------------------------
+ * smart phone / レスポンシブデザイン
+ * -------------------------------- */
+@media (max-width: 923px) { /* reportssp.css のブレークポイントに合わせる */
+    /* ヘッダーの調整 */
+    .header {
+        padding: 0 15px; /* モバイルでの左右余白 */
+    }
+    .header-logo {
+        height: 35px; /* モバイルでのロゴサイズ調整 */
+        margin-top: 0; /* Flexboxの中央揃えを活用 */
+    }
+
+    /* ハンバーガーメニューがアクティブな時のメニュー表示 */
+    .menu-items {
+        display: none; /* デフォルトでは非表示 */
+        flex-direction: column; /* 縦並び */
+        position: absolute;
+        top: 56px; /* ヘッダーの下 */
+        left: 0;
+        width: 100%;
+        background-color: #fc9624;
+        z-index: 4;
+        overflow-y: auto; /* メニュー項目が多い場合にスクロール可能に */
+        max-height: calc(100vh - 56px); /* 画面の高さいっぱいにメニューを展開 */
+    }
+    .menu-items.is-open { /* JavaScriptで追加されるクラス */
+        display: flex; /* 開いている時に表示 */
+    }
+    .header-right .menu-item {
+        width: 100%; /* 全幅 */
+        margin-left: 0; /* マージンをリセット */
+        text-align: center; /* テキスト中央寄せ */
+        border-bottom: 1px solid rgba(255,255,255,0.2); /* 区切り線 */
+    }
+    .header-right .menu-item:last-child {
+        border-bottom: none;
+    }
+    .header-right a {
+        padding: 15px 0; /* 上下のパディングを増やす */
+        line-height: normal;
+    }
+
+    /* モバイルでのサブメニューの表示方法 */
+    .menu-item:hover .submenu {
+        display: none; /* モバイルではホバーで表示しない */
+    }
+    .menu-item.is-open .submenu { /* JavaScriptで開閉 */
+        display: block;
+        position: static; /* 通常のフローに従う */
+        box-shadow: none;
+        background-color: rgba(252, 150, 36, 0.8); /* 親メニューより少し暗く */
+        margin-top: 0;
+        border-top: 1px solid rgba(255,255,255,0.2); /* サブメニューの上部にも区切り線 */
+    }
+    .submenu a {
+        padding: 10px 20px; /* サブメニューのリンクパディング */
+        text-align: center;
+    }
+
+    /* コンテンツ表示エリア (box1) */
+    .box1 {
+        margin-top: 76px; /* ヘッダーの高さに合わせて調整 */
+        padding: 15px; /* モバイルでのパディング調整 */
+    }
+    h1, h2 {
+        font-size: 1.5em; /* モバイルでのタイトルサイズ調整 */
+    }
+    #download-list a {
+        font-size: 1rem; /* モバイルでのフォントサイズ */
+        padding: 8px 5px;
+    }
+    #download-list a i {
+        font-size: 1em;
+    }
+
+    /* フッター */
+    footer {
+        font-size: 0.9em;
+    }
+}

@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+/* ベーススタイルのリセット */
+body, h1, h2, p, ul, li {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* ページ全体の背景色 */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+    max-width: 1800px;
+    padding: 0 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* コンテナ */
+.philosophy {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* 見出し */
+.heading {
+  font-size: 2.5em;
+  color: #333355;
+/*  color: #fc9624;*/
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* 画像 */
+.image1 img {
+  width: 20%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%; /* 丸い画像にする */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 画像に影をつける */
+  margin-bottom: 20px;
+}
+
+/* テキストスタイル */
+.greet {
+  font-size: 1.3em;
+  color: #333355;
+/*  color: #fc9624;*/
+  margin-bottom: 20px;
+}
+.greet-text1 {
+  font-size: 1.8em;
+  color: #333355;
+/*  color: #fc9624;*/
+  margin-bottom: 20px;
+}
+
+.greet-text3 {
+  text-align: left;
+  font-size: 1.2em;
+  color: #333355;
+/*  color: #fc9624;*/
+  margin: 0 auto;
+  line-height: 1.8;
+  max-width: 800px; /* 中央寄せのための最大幅設定 */
+}
+.greet-text3 {
+    font-size: 16px;
+    line-height: 1.5;
+}
+.indent {
+    display: block;
+    text-indent: 1em;
+    margin-bottom: 10px; /* 段落の間にスペースを追加 */
+}
+
+
+.hist-container {
+  display: flex;
+  justify-content: center; /* コンテンツを中央に配置 */
+  padding: 0 20px; /* 左右に余白を追加 */
+}
+
+.hist {
+  background-color: #f9f9f9;
+  text-align: left; /* デフォルトで左揃え */
+  color: #333355;
+/*  color: #fc9624;*/
+  width: 100%;
+  max-width: 700px; /* コンテンツの最大幅を設定 */
+  margin: 0 auto; /* コンテナを中央揃えに */
+}
+
+/* 768px以下のブレークポイント */
+@media (max-width: 768px) {
+  .hist {
+    text-align: center; /* テキストを中央揃えに */
+  }
+}
+
+.timeline {
+  list-style-type: none;
+  padding: 0 15px;
+}
+
+.timeline li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; /* 上部で揃える */
+  margin-bottom: 10px;
+}
+
+.timeline .date {
+  width: 150px; /* 日付の幅を調整 */
+  font-weight: bold;
+  text-align: left; /* 左揃え */
+}
+
+.timeline .event {
+  flex: 1;
+  text-align: left; /* 左揃え */
+}
+
+/*
+@media (max-width: 1247px) {
+    body {
+        background-image: none;
+        margin: 0;
+    }
+    .header-right .menu-item {
+        margin-left: 10px;
+    }
+    .header-right a {
+        padding: 0 5px;
+        margin-left: 10px;
+    }
+*/
+
+/* レスポンシブデザイン */
+@media screen and (max-width: 768px) {
+  .philosophy {
+    padding: 30px 10px;
+  }
+  .image1 img {
+    width: 50%;
+  }
+  .philosophy-text1, .philosophy-text2 {
+    font-size: 1.5em;
+  }
+  .philosophy-text3 {
+    font-size: 0.6em;
+    padding: 0 10px;
+  }
+}
+.greet-text3 {
+    font-size: 1.2em; /* フォントサイズを少し小さく */
+    padding: 0 15px; /* 左右に余白を追加して画面端に隠れないようにする */
+}
+@media screen and (max-width: 768px){
+.hist {
+    font-size: 1.1em;
+    padding: 0 ;
+}
+.timeline .date {
+/*  width: auto;  日付の幅を調整 */
+  font-weight: bold;
+  text-align: center; /* 左揃え */
+}
+.timeline {
+  list-style-type: none;
+  padding: 0 10px 0 0;
+}
+}
+.footer {
+    padding: 12px 0;
+    font-size: 1.0rem;
+    text-align: center;
+    background-color: #FC9624;
+    color: #f5f5f5;
+}

@@ -1,0 +1,493 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header {
+    height: 56px;
+    width: 100%;
+    box-shadow: 0 0 10px #dddddd;
+    background-color: #fc9624;
+    position: fixed;
+    top: 0;
+    z-index: 5;
+}
+.header-left {
+    float: left;
+}
+.header-right {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.header-logo {
+    height: 40px;
+    margin-top: 8px;
+    z-index: 10;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.header-logo:hover {
+    transform: scale(1.1); /* ロゴを1.1倍に拡大 */
+    opacity: 0.8; /* 透明度を0.8にする */
+}
+
+.header-right .menu-item {
+    display: inline-block; /* 横並びにするためにインラインブロックに設定 */
+    position: relative; /* サブメニューの位置を親に対して相対的にするため */
+}
+.header-right a {
+    line-height: 56px;
+    color: #fff;
+    padding: 0 10px;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none; /* 下線を削除 */
+}
+.header-right a:hover {
+    font-size: 1.2em;
+    color: #fff;
+    font-weight: bold;
+}
+.submenu {
+    display: none; /* デフォルトではサブメニューを非表示 */
+    position: absolute;
+    top: 100%; /* 親メニューの下に配置 */
+    left: 0;
+    background-color: #fc9624; /* ヘッダーと同じ背景色 */
+    box-shadow: 0 0 10px #dddddd;
+    z-index: 5;
+}
+.submenu a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none; /* 下線を削除 */
+}
+.submenu a:hover {
+    background-color: #f5a623; /* ホバー時に背景色を変更 */
+}
+.menu-item:hover .submenu {
+    display: block; /* ホバー時にサブメニューを表示 */
+}
+
+
+/* ハンバーガーメニューボタンはデフォルトでは非表示 */
+/* ハンバーガーメニューボタンはデフォルトでは非表示 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* デフォルトではメニュー項目は横並び */
+.menu-items {
+    display: flex;
+}
+
+/* 画面幅が768px以下のスタイル */
+@media (max-width: 923px) {
+    .menu-toggle {
+        display: block;  /* ハンバーガーボタンを表示 */
+    }
+    .menu-items {
+        display: none;  /* メニュー項目を非表示 */
+        flex-direction: column;  /* メニュー項目を縦並びにする */
+        width: 100%;  /* メニューを全幅にする */
+        background-color: #fc9624;  /* メニューの背景色 */
+        position: absolute;
+        top: 56px;  /* ヘッダーの下に配置 */
+        left: 0;
+    }
+    .menu-item {
+        width: 100%;  /* メニュー項目を全幅にする */
+        text-align: center;  /* テキストを中央揃えにする */
+        padding: 10px 0;
+    }
+    .menu-item a {
+        line-height: 1.5;
+    }
+    .menu-item:hover .submenu {
+        position: static;  /* サブメニューを流れに従わせる */
+        display: none;  /* モバイルビューではサブメニューを非表示 */
+    }
+}
+
+/
+/* ホバー時に右側にドロップダウン表示するサブメニューのスタイル */
+.submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* メインメニューの右側に表示 */
+    background-color: #fc9624;
+    box-shadow: 0 0 10px #dddddd;
+    z-index: 10;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+
+
+
+
+/* 採用情報ボタン（共通） */
+.recruit-button {
+    display: inline-block;
+    background-color: #22aaff;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-left: 20px;
+    border: 1px solid #fff;
+    /*width: 80px;   /* 幅を15pxに設定 */
+    /*height: 45px;  /* 高さを10pxに設定 */
+}
+
+.recruit-button:hover {
+    background-color: #ddd;
+}
+/* 採用情報ボタン（共通） */
+.recruit-button2 {
+    display: inline-block;
+    background-color: #22aaaa;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+    margin-left: 20px;
+    border: 1px solid #fff;
+    /*width: 80px;   /* 幅を15pxに設定 */
+    /*height: 45px;  /* 高さを10pxに設定 */
+}
+
+.recruit-button2:hover {
+    background-color: #ddd;
+}
+
+/* PC用ボタンの表示設定 */
+.pc-only {
+    display: inline-block;
+}
+
+/* モバイルビューでのサブメニューの表示方法 */
+@media (max-width: 768px) {
+    .submenu {
+        position: static; /* モバイルビューでは通常の表示に戻す */
+        left: auto;
+        top: auto;
+        box-shadow: none;
+    }
+}
+
+/*事業紹介のボックスのコンテナだった*/
+.container {
+    max-width: 1800px;
+    padding: 0 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-visual {
+    position: relative;
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../images/recruit .webp");
+    background-size: cover;
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.main-visual::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* 半透明の黒オーバーレイ */
+    z-index: 1;
+}
+
+.main-visual .container {
+    position: relative;
+    z-index: 2; /* テキストがオーバーレイの上に表示されるようにする */
+}
+
+.top-title {
+    font-size: 56px;
+/*    margin-top: -50px;*/
+    margin-bottom: 10px;
+}
+.top-text1 {
+    font-size: 48px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.top-text2 {
+    font-size: 20px;
+    opacity: 0.8;
+    text-align: left;
+    color: #f5f5f5;
+}
+.top-text2 {
+    opacity: 0.8;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+.top-text3 {
+    font-size: 30px;
+    margin-bottom: 60px;
+}
+em {
+    color: red; /* 強調する文字の色を変更 */
+    font-weight: bold; /* 文字を太字に */
+}
+span {
+    color: #00aaff;
+    font-size: 26px;
+}
+/*-------------------------
+*内容紹介
+*--------------------------*/
+.workbs {
+    padding: 90px 0 60px;
+    color: #777777;
+}
+.workbs-bs {
+    width: 50%;
+    margin-top: 35px;
+}
+.workbs-bs-inner {
+    padding: 25px 30px;
+    background-color: #f5f5f5;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px #fc9624;
+    text-align: left;
+    margin: 0 20px;
+}
+.workbs-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.workbs-title {
+    margin-bottom: 8px;
+    text-align: center;
+}
+.workbs-text {
+    font-size: 16px;
+}
+.workbs-bs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+.contact-info .contact-header,
+.contact-info .contact-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #777777;
+    line-height: 1.2; /* 行間を狭くする */
+    margin: 0; /* 上下の余白をなくす */
+}
+.contact-info .label {
+    width: 60px; /* ラベル部分の固定幅 */
+    font-weight: bold;
+    display: inline-block; /* インラインブロックで横並び */
+}
+.contact-info .detail {
+    margin-left: 10px;
+    display: inline-block; /* インラインブロックで横並び */
+}
+.contact-info .contact-header .label {
+    width: auto; /* ラベル部分の固定幅を解除 */
+    margin-right: 10px; /* 間隔を調整 */
+}
+.contact-info .contact-header .detail {
+    min-width: 0; /* 詳細部分の最小幅を解除 */
+}
+
+address p {
+  margin: 0; /* 上下の余白をなくす */
+}
+
+address p:before {
+  content: attr(data-label); /* data-label属性の内容を表示 */
+  margin-right: 5px; /* ラベルとリンクの間のスペース */
+  color: #00aaff; /* ラベルの文字色を赤色に設定 */
+  font-weight: bold; /* ラベルを太字にする */
+  font-size: 26px; /* ラベルのフォントサイズを14pxに設定 */
+}
+
+address a {
+  text-decoration: none; /* リンクのアンダーラインを消す */
+  color: #00aaff; /* 文字色をダークグレーに設定 */
+  font-size: 26px; /* フォントサイズを16pxに設定 */
+}
+
+.divider {
+    width: calc(100% - 70px); /* ラベル部分を考慮して計算 */
+    height: 1px;
+    background-color: #777777;
+    margin: 10px 0; /* 上下に適度な余白を設定 */
+}
+
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+.footer {
+  padding: 12px 0;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: #FC9624;
+  color: #f5f5f5;
+}
+/* --------------------------------
+ * smart phone
+ * -------------------------------- */
+@media (max-width: 1247px) {
+    body {
+        background-image: none;
+        margin: 0;
+    }
+    .header-right .menu-item {
+        margin-left: 10px;
+    }
+    .header-right a {
+        padding: 0 5px;
+        margin-left: 10px;
+    }
+    .submenu a {
+        padding: 5px;
+    }
+    .top-title {
+        font-size: 48px;
+    }
+    .top-subtitle {
+        font-size: 20px;
+    }
+    .top-text {
+        font-size: 14px;
+    }
+    .workbs-bs {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .workbs-bs-inner {
+        padding: 15px 20px;
+        margin: 10px 0;
+    }
+    .workbs-title {
+        font-size: 18px;
+    }
+    .workbs-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 1.3rem;
+    }
+/*
+    .header {
+        height: auto;
+        text-align: center;
+    }
+    .header-logo {
+        height: 30px;
+        margin: 5px 0;
+    }
+    .header-right {
+        float: none;
+        text-align: center;
+    }
+    .header-right .menu-item {
+        display: block;
+        margin: 10px 0;
+    }
+    .header-right a {
+        display: block;
+        margin: 5px 0;
+    }
+    .submenu {
+        position: static;
+        box-shadow: none;
+    }
+    .submenu a {
+        padding: 10px;
+    }
+*/
+    .main-visual {
+        background-image: url("../images/recruit2 .webp");
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    
+    .top-title {
+        font-size: 24px;
+    }
+/*
+    .top-subtitle {
+        font-size: 18px;
+    }
+*/
+    .top-text1 {
+        font-size: 18px;
+    }
+    .top-text2 {
+        font-size: 15px;
+/*        color: #ffff00;*/
+    }
+    .top-text3 {
+        font-size: 18px;
+    }
+    .workbs-bs-wrapper {
+        display: block;
+    }
+    .workbs-bs {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .workbs-bs-inner {
+        padding: 10px 15px;
+    }
+    .workbs-text {
+        font-size: 16px;
+    }
+}
+.footer {
+    padding: 12px 0;
+    font-size: 1.0rem;
+    text-align: center;
+    background-color: #FC9624;
+    color: #f5f5f5;
+}

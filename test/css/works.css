@@ -1,0 +1,344 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-visual1 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/aka-top.webp");
+    background-size: cover;
+    background-position: center; /* 画像を中央に配置 */
+    color: #f5f5f5;
+    text-align: center;
+    min-height: 600px; /* 高さを調整 */
+}
+
+
+/*
+.main-visual1 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/aka-top.webp");
+    background-size: cover;
+    color: #f5f5f5;
+    text-align: center;
+}
+*/
+.main-visual2 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/tanpopo-top.webp");
+    background-size: cover;
+    background-position: center; /* 画像を中央に配置 */
+    color: #f5f5f5;
+    text-align: center;
+    min-height: 600px; /* 高さを調整 */
+}
+.main-visual3 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/run-top1.webp");
+    background-size: cover;
+    background-position: center; /* 画像を中央に配置 */
+    color: #f5f5f5;
+    text-align: center;
+    min-height: 600px; /* 高さを調整 */
+}
+.main-visual4 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/yas-dayz.webp");
+    background-size: cover;
+    background-position: center; /* 画像を中央に配置 */
+    color: #f5f5f5;
+    text-align: center;
+    min-height: 600px; /* 高さを調整 */
+}
+.main-visual5 {
+    padding-top: 140px;
+    padding-bottom: 100px;
+    background-image: url("../workimagesx/kou-topzyz.webp");
+    background-size: cover;
+    background-position: center;  /* 画像を中央に配置 */ 
+    color: #f5f5f5;
+    text-align: center;
+    min-height: 600px; /* 高さを調整 */
+}
+.main-visual3::before,
+.main-visual4::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.top-title {
+    font-size: 64px;
+    margin-bottom: 10px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+.top-subtitle {
+    font-size: 24px;
+    margin-bottom: 60px;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+/*text-shadow以下で文字の縁取りを設定している*/
+.top-text {
+    opacity: 0.8;
+    text-align: left;
+    font-weight: bold;
+    color: #ffffff;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+span {
+    color: #00aaff;
+    font-size: 26px;
+}
+
+span2 {
+    color: #00aaff;
+    font-size: 16px;
+}
+/*20240806追加recrute.cssを参照した*/
+
+/*-------------------------
+*施設紹介
+*--------------------------*/
+.workbs {
+    padding: 90px 0 60px;
+    color: #333355;
+/*    color: #fc9624;*/
+}
+.workbs-bs {
+    width: 33%;
+    margin-top: 35px;
+}
+.workbs-bs-inner {
+    padding: 25px 30px;
+    background-color: #f5f5f5;
+    border-radius: 7px;
+    box-shadow: 1.5px 1.5px 4px #fc9624;
+    text-align: left;
+    margin: 0 20px;
+}
+.workbs-image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+.workbs-title {
+    margin-bottom: 8px;
+    text-align: center;
+}
+.workbs-text {
+    font-size: 14px;
+}
+.workbs-bs-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.contact-info {
+    margin-bottom: 20px;
+}
+.contact-info .contact-header,
+.contact-info .contact-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #777777;
+    line-height: 1.2; /* 行間を狭くする */
+    margin: 0; /* 上下の余白をなくす */
+}
+.contact-info .label {
+    width: 60px; /* ラベル部分の固定幅 */
+    font-weight: bold;
+    display: inline-block; /* インラインブロックで横並び */
+/*
+    font-size: 26px
+    color: #00aaff;
+*/
+}
+.contact-info .detail {
+    margin-left: 10px;
+    display: inline-block; /* インラインブロックで横並び */
+    font-size: 26px;
+    color: #00aaff;
+}
+.contact-info .contact-header .label {
+    width: auto; /* ラベル部分の固定幅を解除 */
+    margin-right: 10px; /* 間隔を調整 */
+}
+.contact-info .contact-header .detail {
+    min-width: 0; /* 詳細部分の最小幅を解除 */
+}
+
+address p {
+  margin: 0; /* 上下の余白をなくす */
+}
+
+address p:before {
+  content: attr(data-label); /* data-label属性の内容を表示 */
+  margin-right: 5px; /* ラベルとリンクの間のスペース */
+  color: #00aaff; /* ラベルの文字色を赤色に設定 */
+  font-weight: bold; /* ラベルを太字にする */
+  font-size: 26px; /* ラベルのフォントサイズを14pxに設定 */
+}
+
+address a {
+  text-decoration: none; /* リンクのアンダーラインを消す */
+  color: #00aaff; /* 文字色をダークグレーに設定 */
+  font-size: 26px; /* フォントサイズを16pxに設定 */
+}
+
+.divider {
+    width: calc(100% - 70px); /* ラベル部分を考慮して計算 */
+    height: 1px;
+    background-color: #777777;
+    margin: 10px 0; /* 上下に適度な余白を設定 */
+}
+@media (max-width: 768px) {
+    .contact-info {
+        font-size: 14px; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        font-size: 12px; /* Further adjust font size for very small screens */
+    }
+}
+/* --------------------------------
+ * footer
+ * -------------------------------- */
+.footer {
+  padding: 12px 0;
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: #FC9624;
+  color: #f5f5f5;
+}
+/* --------------------------------
+ * smart phone
+ * -------------------------------- */
+@media (max-width: 1247px) {
+    body {
+        background-image: none;
+        margin: 0;
+    }
+    .header-right .menu-item {
+        margin-left: 10px;
+    }
+    .header-right a {
+        padding: 0 5px;
+        margin-left: 10px;
+    }
+    .submenu a {
+        padding: 5px;
+    }
+    .top-title {
+        font-size: 48px;
+    }
+    .top-subtitle {
+        font-size: 20px;
+    }
+    .top-text {
+        font-size: 16px;
+    }
+    .workbs-bs {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .workbs-bs-inner {
+        padding: 15px 20px;
+        margin: 10px 0;
+    }
+    .workbs-title {
+        font-size: 18px;
+    }
+    .workbs-text {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 1.4rem;
+    }
+/*ここよリ上をコメントアウトしたら、法人と同じレスポンシブになった*/
+    
+    .main-visual1, .main-visual2, .main-visual3, .main-visual4, .main-visual5 {
+        width: cover;
+        padding-top: auto;
+        padding-bottom: auto;
+    }
+    .top-title {
+        font-size: 36px;
+    }
+    .top-subtitle {
+        font-size: 22px;
+    }
+    .top-text {
+        font-size: 16px;
+    }
+    .workbs-bs-wrapper {
+        display: block;
+    }
+    .workbs-bs {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .workbs-bs-inner {
+        padding: 10px 15px;
+    }
+    .workbs-text {
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px) {
+  a {
+    word-wrap: break-word;
+    white-space: normal;
+    font-size: 26px;
+    color: #00aaff;
+  }
+}
+/*
+.footer {
+    padding: 12px 0;
+    font-size: 1.0rem;
+    text-align: center;
+    background-color: #FC9624;
+    color: #f5f5f5;
+}
+*/
