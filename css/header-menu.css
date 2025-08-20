@@ -67,6 +67,7 @@
     color: #fff;
     text-decoration: none;
     transition: all 0.3s ease;
+    font-size: 16px;
 }
 
 .menu-item > a:hover {
@@ -100,6 +101,7 @@
     text-decoration: none;
     line-height: 1.5;
     white-space: nowrap;
+    font-size: 15px;
 }
 
 .submenu li a:hover {
@@ -208,6 +210,7 @@
     .menu-item > a {
         padding: 15px 0;
         line-height: 1.5;
+        font-size: 16px;
     }
 
     /* Mobile Submenu */
