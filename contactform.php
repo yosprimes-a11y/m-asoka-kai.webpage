@@ -240,7 +240,7 @@
           <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_SESSION['email']) ?>" required>
         </div>
         <div class="form-group">
-          <label for="message">お問い合わせ内容（営業に関するお問い合わせはご対応いたしかねますので、ご了承ください）</label>
+          <label for="message">お問い合わせ内容（営業に関するお問い合わせには、ご対応いたしかねますことをご了承ください）</label>
           <textarea id="message" name="message" required><?php echo htmlspecialchars($_SESSION['message']) ?></textarea>
         </div> 
         <div class="form-actions">
