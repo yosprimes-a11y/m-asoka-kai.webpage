@@ -156,7 +156,7 @@
 
   <!--    <p class="site-title-sub">a</p>-->
   <h1 class="site-title">あなたと共に素敵な未来を創る</h1>
-  <a href="index.html"><img class="header-logo" src="images/asokalogoxmini.png" alt="sub-logo"></a>
+  <a href="index.php"><img class="header-logo" src="images/asokalogoxmini.png" alt="sub-logo"></a>
   <!--    <p class="site-description">b</p>-->
   <div class="img-box">
     <div></div>

@@ -13,7 +13,7 @@
     <div class="header">
         <div class="container">
             <div class="header-left">
-                <a href="index.html"><img class="header-logo" src="images/asokalogoxmini.png" alt="sub-logo"></a>
+                <a href="index.php"><img class="header-logo" src="images/asokalogoxmini.png" alt="sub-logo"></a>
             </div>
             <div class="header-right">
                 <button class="menu-toggle" aria-label="Toggle navigation">
@@ -23,18 +23,18 @@
                 </button>
                 <nav class="menu-items">
                     <ul>
-                        <li class="menu-item"><a href="index.html#latest-news">お知らせ</a></li>
+                        <li class="menu-item"><a href="index.php#latest-news">お知らせ</a></li>
                         <li class="menu-item">
-                            <a href="index.html#philosophy">法人について</a>
+                            <a href="index.php#philosophy">法人について</a>
                             <div class="submenu">
                                 <a href="houjin.html">理事長挨拶</a>
                                 <a href="houjin.html#hist">法人沿革</a>
-                                <a href="index.html#philosophy">法人理念</a>
+                                <a href="index.php#philosophy">法人理念</a>
                                 <a href="reportssp.html">情報開示</a>
                             </div>
                         </li>
                         <li class="menu-item">
-                            <a href="index.html#works">事業について</a>
+                            <a href="index.php#works">事業について</a>
                             <div class="submenu">
                                 <a href="akagi.html">赤城野荘</a>
                                 <a href="kou.html">光明園</a>
@@ -43,7 +43,7 @@
                                 <a href="run.html">ルンビニー苑</a>
                             </div>
                         </li>
-                        <li class="menu-item"><a href="index.html#skills">約束について</a></li>
+                        <li class="menu-item"><a href="index.php#skills">約束について</a></li>
                         <li class="menu-item"><a href="recruit.html">採用について</a></li>
                         <li class="menu-item"><a href="downloads.php">ダウンロード</a></li> <li class="menu-item"><a href="policy.html">サイトポリシー</a></li>
                     </ul>

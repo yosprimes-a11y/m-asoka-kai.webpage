@@ -244,7 +244,7 @@
           <textarea id="message" name="message" required><?php echo htmlspecialchars($_SESSION['message']) ?></textarea>
         </div> 
         <div class="form-actions">
-            <a href="index.html" class="btn btn-secondary">ホームに戻る</a>
+            <a href="index.php" class="btn btn-secondary">ホームに戻る</a>
             <input type="submit" name="confirm" value="入力内容の確認" class="btn btn-primary"/>
         </div>
       </form>
@@ -270,7 +270,7 @@
         <h1>送信完了</h1>
         <p>お問い合わせいただき、誠にありがとうございます。内容を確認の上、担当者よりご連絡させていただきます。</p>
         <p>通常、数営業日以内にご返信いたしますので、今しばらくお待ちください。</p>
-        <a href="./index.html" class="home-link">ホームに戻る</a>
+        <a href="./index.php" class="home-link">ホームに戻る</a>
       </div>
 
     <?php } else if ( $mode == 'error' ){
