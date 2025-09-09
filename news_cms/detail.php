@@ -33,7 +33,7 @@ function getJapaneseDayOfWeek($dateString) {
         h1 { color: #007bff; margin-bottom: 10px; }
         .news-meta { font-size: 0.9em; color: #666; margin-bottom: 20px; }
         .news-content { margin-top: 20px; }
-        .news-content img { max-width: 100%; height: auto; display: block; margin: 15px 0; border-radius: 4px; }
+        .news-image { max-width: 100%; height: auto; display: block; margin: 15px 0; border-radius: 4px; }
         .back-link { display: inline-block; margin-top: 30px; padding: 10px 15px; background-color: #6c757d; color: white; text-decoration: none; border-radius: 4px; }
         .back-link:hover { background-color: #5a6268; }
     </style>
@@ -47,7 +47,7 @@ function getJapaneseDayOfWeek($dateString) {
                 <span style="margin-left: 15px;">カテゴリ: <?php echo htmlspecialchars($news_item['category']); ?></span>
             </div>
             <?php if (!empty($news_item['image'])): ?>
-                <img src="<?php echo htmlspecialchars($news_item['image']); ?>" alt="<?php echo htmlspecialchars($news_item['title']); ?>">
+                <img src="<?php echo htmlspecialchars($news_item['image']); ?>" alt="<?php echo htmlspecialchars($news_item['title']); ?>" class="news-image">
             <?php endif; ?>
             <div class="news-content">
                 <?php echo nl2br(htmlspecialchars($news_item['content'])); ?>
