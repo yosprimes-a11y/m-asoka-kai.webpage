@@ -8,18 +8,12 @@ html {
 }
 body {
   position: relative;
-/*  background: #F79C28 url('../images/た2.png') no-repeat fixed center top; */
-  background-attachment: fixed;
-  background-size: cover;
-  color: #fff;
+  background: #fff;
+  color: #333;
   text-align: center;
-  font-size: 1.4rem;
-/*  font-family: "メイリオ";*/
-  font-family: 'Raleway', sans-serif;
-/*
-  margin: 0;
-  padding: 0;
-*/
+  font-size: 1.6rem;
+  line-height: 1.6;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 .social-buttons {
   display: flex;
@@ -204,7 +198,7 @@ body {
   padding-bottom: 5px;
   letter-spacing: 2px;
   font-size: 4rem;
-  font-family: "メイリオ", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
 .heading::before {
@@ -257,8 +251,8 @@ body {
 
 .philosophy {
   padding: 60px 0px;
-  background-color: #f5f5f5;
-  color: #333355;
+  background-color: #fff;
+  color: #333;
 }
 .philosophy-text1 {
   margin: 10px 0;
@@ -307,13 +301,11 @@ body {
 
 .works {
   padding: 60px 0;
-  background-color: #FFFFFF;
-  color: #f5f5f5;
-  background-image: url('../images/あそ5 .webp');
-  background-size: cover;
+  background-color: #f5f5f5;
+  color: #333;
 }
 .works .heading::before {
-  background-color: #f5f5f5;
+  background-color: #333;
 }
 .works-wrapper {
   display: flex; 
@@ -341,21 +333,9 @@ body {
 .skills {
   position: relative;
   padding: 60px 0;
-  background-color: #FEE6C2;
-  color: #f5f5f5;
-  background-image: url('../images/skillo .webp');
-  background-size: cover;
+  background-color: #fff;
+  color: #333;
   z-index: 1;
-}
-.skills::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: -1;
 }
 .skills-wrapper {
   display: table;
@@ -388,7 +368,7 @@ body {
   line-height: 1.5;
 }
 .skills .heading::before {
-  background-color: #f5f5f5;
+  background-color: #333;
 }
 
 .footer {
