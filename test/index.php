@@ -270,8 +270,8 @@
 -->
   <footer class="footer">
     <div class="social-buttons">
-      <a href="https://www.instagram.com/akagi_no_sou" class="instagram-btn red" target="_blank">
-        <i class="fab fa-instagram"></i> 赤城野荘 Instagram
+      <a href="https://lit.link/9ff866c1-744a-4d20-adfd-123a2da82a2d" class="instagram-btn red" target="_blank">
+        <i class="fab fa-instagram"></i> 赤城野荘 LIt.Link
       </a>
       <a href="https://www.instagram.com/koumyouen" class="instagram-btn blue" target="_blank">
         <i class="fab fa-instagram"></i> 光　明　園 Instagram
