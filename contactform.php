@@ -50,28 +50,28 @@
     $mail = new PHPMailer(true); // 例外を有効にする
 
     try {
-        //サーバー設定
-        $mail->isSMTP();                                            // SMTPを使用
-        $mail->Host       = 'sv16067.xserver.jp';                       // SMTPサーバーのホスト名 (例: smtp.gmail.com)
-        $mail->SMTPAuth   = true;                                   // SMTP認証を有効にする
-        $mail->Username   = 'info@m-asoka-kai.jp';                   // SMTPユーザー名 (例: your-email@example.com)
-        $mail->Password   = '88YpH%:B9d7X';                   // SMTPパスワード (Gmailの場合はアプリパスワード)
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            // SSL/TLS暗号化を有効にする (tls も可)
-        $mail->Port       = 465;                                    // TCPポート (SSL:465, TLS:587)
-
-        //文字コード設定
+        // --- サーバー設定（Google SMTP） ---
+        $mail->isSMTP();
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'murayama@m-asoka-kai.jp';      // 特権管理者のID（そのままでOK）
+        $mail->Password   = 'jspqijhayvozfuod';             // アプリパスワード（そのままでOK）
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+        // --- 文字コード設定（重要） ---
         $mail->CharSet = 'UTF-8';
+        $mail->Encoding = 'base64'; // Googleの処理による文字化けを防ぐため追加
 
-        //受信者
-        // setFrom() の第一引数は、SMTP認証で使うメールアドレスと同じにするのが最も安全です。
-        // フォームに入力されたユーザーのメールアドレスは Reply-To に設定します。
-        $mail->setFrom('info@m-asoka-kai.jp', 'ウェブサイトお問い合わせ'); // 送信元として表示したいメールアドレスと名前
-        $mail->addAddress('akaginosou@nifty.com', 'お問い合わせ');     // 受信者 (akaginosou@nifty.com)
-        $mail->addReplyTo($_SESSION['email'], $_SESSION['fullname']); // 返信先をフォーム入力者のメールアドレスに設定
-
+                // --- 受信者設定 ---
+                // 送信元には、Gmailで「メールを送信」する権限を許可したエイリアスアドレスを指定します。
+                $mail->setFrom('noreply@m-asoka-kai.jp', '社会福祉法人前橋あそか会');                
+                        // 宛先
+                        $mail->addAddress('contact@m-asoka-kai.jp', 'HPお問い合わせ');        
+                // 返信先（お問い合わせした人のアドレス）
+                $mail->addReplyTo($_SESSION['email'], $_SESSION['fullname']);
         //コンテンツ
-        $mail->isHTML(false);                                       // HTMLメールではない (テキストメール)
-        $mail->Subject = 'ウェブサイトからのお問い合わせ';
+        $mail->isHTML(false);                                       // テキストメール
+        $mail->Subject = '【WEBサイト】お問い合わせ：' . $_SESSION['fullname'] . '様';
         $mail->Body    = "名前: " . $_SESSION['fullname'] . "\n"
                        . "Eメール: " . $_SESSION['email'] . "\n"
                        . "お問い合わせ内容:\n" . $_SESSION['message'];
@@ -85,10 +85,11 @@
         session_destroy();
     } catch (Exception $e) {
         $mode = 'error';
-        // エラー情報をログに出力 (サーバーのエラーログで確認できます)
-        error_log("お問い合わせメールの送信に失敗しました。Mailer Error: {$mail->ErrorInfo}");
-    }
-  } else {
+        // エラー情報をセッションに保存して、画面に表示できるようにする
+        $_SESSION['error_message'] = "Mailer Error: {$mail->ErrorInfo}";
+        // エラー情報をログにも出力
+        error_log("お問い合わせメールの送信に失敗しました。 " . $_SESSION['error_message']);
+    }  } else {
     $_SESSION['fullname'] = "";
     $_SESSION['email']    = "";
     $_SESSION['message']  = "";
@@ -278,6 +279,16 @@
       <div class="completion-message">
         <h1>送信エラー</h1>
         <p>申し訳ございません。メールの送信に失敗しました。</p>
+        <?php if (!empty($_SESSION['error_message'])): ?>
+          <div style="text-align: left; padding: 15px; margin: 20px auto; border: 1px solid #c00; background-color: #fdd; border-radius: 5px; max-width: 90%;">
+            <strong>技術的なエラー詳細:</strong>
+            <pre style="white-space: pre-wrap; word-wrap: break-word; margin-top: 10px;"><?php echo htmlspecialchars($_SESSION['error_message']); ?></pre>
+          </div>
+        <?php 
+              // エラーメッセージを一度表示したらセッションから削除する
+              unset($_SESSION['error_message']);
+        ?>
+        <?php endif; ?>
         <p>お手数ですが、時間をおいて再度お試しいただくか、別のご連絡手段をご利用ください。</p>
         <a href="./contactform.php" class="home-link">もう一度試す</a>
       </div>
